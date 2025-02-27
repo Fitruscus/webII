@@ -1,0 +1,38 @@
+.mensaje {
+  padding: 2rem 0;
+}
+
+.mensaje__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1.5rem;
+}
+
+.mensaje__item {
+  max-width: 250px;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mensaje__logo {
+  background-size: cover;
+  background-position: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.75rem;
+  border-radius: 50%;
+}
+
+.mensaje__item__titulo {
+  color: cadetblue;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.mensaje__item__texto {
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
