@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 Seleccion de elementos por clase</title>
+</head>
+<body>
+    <div class="clase-1">elemento1</div>
+    <div class="clase-1">elemento1</div>
+    <div class="clase-1">elemento1</div>
+    <script>
+        const elementos = document.getElementsByClassName('clase-1');
+        for(const elemento of elementos){
+            elemento.style.backgroundColor='green';
+        }
+    </script>
+</body>
+</html>

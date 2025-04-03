@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopPropagation</title>
+</head>
+<body>
+    <div id="elementoPadre">
+        <div id="elementoHijo">
+            Elemento
+        </div>
+    </div>
+    <script>
+        const elementoHijo = document.getElementById('elementoHijo');
+        elementoHijo.addEventListener('click', (evento)=>{
+            evento.stopPropagation()
+            alert('evento Hijo');
+        });
+        const elementoPadre = document.getElementById('elementoPadre');
+        elementoHijo.addEventListener('click', (evento)=>{
+            evento.stopPropagation()
+            alert('Evento Padre');
+        });
+    </script>
+</body>
+</html>
