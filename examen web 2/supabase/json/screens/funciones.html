@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Funciones - CineSystem</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+        <nav class="navegacion">
+            <div class="logo">CineSystem</div>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="peliculas.html">Peliculas</a></li>
+                <li><a href="salas.html">Salas</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="boletos.html">Boletos</a></li>
+                <li><a href="asignaciones.html">Asignaciones</a></li>
+                <li><a href="funciones.html" class="activo">Funciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion activo">
+            <div class="contenedor-crud">
+                <h2>Administración de Funciones</h2>
+                
+                <!-- Formulario de registro -->
+                <div class="contenedor-formulario">
+                    <h3>Registrar Función</h3>
+                    <form id="form-funciones">
+                        <div class="form-group">
+                            <label for="pelicula-funcion">Película</label>
+                            <select id="pelicula-funcion" required>
+                                <option value="">Seleccione una película</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sala-funcion">Sala</label>
+                            <select id="sala-funcion" required>
+                                <option value="">Seleccione una sala</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="horario-funcion">Horario</label>
+                            <input type="datetime-local" id="horario-funcion" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Registrar Función</button>
+                    </form>
+                </div>
+
+                <!-- Tabla de funciones -->
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Película</th>
+                                <th>Sala</th>
+                                <th>Horario</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../config/supabase.js"></script>
+    <script src="../scripts/validaciones.js"></script>
+    <script src="../scripts/app.js"></script>
+    <script>
+        // Inicializar la lista de funciones al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            listarFunciones();
+        });
+    </script>
+</body>
+</html>

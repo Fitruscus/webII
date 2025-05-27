@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Boletos - CineSystem</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+        <nav class="navegacion">
+            <div class="logo">CineSystem</div>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="peliculas.html">Peliculas</a></li>
+                <li><a href="salas.html">Salas</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="boletos.html" class="activo">Boletos</a></li>
+                <li><a href="asignaciones.html">Asignaciones</a></li>
+                <li><a href="funciones.html">Funciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion activo">
+            <div class="contenedor-crud">
+                <h2>Administración de Boletos</h2>
+                
+                <!-- Formulario de registro -->
+                <div class="contenedor-formulario">
+                    <h3>Registrar Boleto</h3>
+                    <form id="form-boletos">
+                        <div class="form-group">
+                            <label for="funcion-boleto">Función</label>
+                            <select id="funcion-boleto" required>
+                                <option value="">Seleccione una función</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cliente-boleto">Cliente</label>
+                            <select id="cliente-boleto" required>
+                                <option value="">Seleccione un cliente</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="asiento-boleto">Asiento</label>
+                            <input type="text" id="asiento-boleto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio-boleto">Precio</label>
+                            <input type="number" id="precio-boleto" step="0.01" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Registrar Boleto</button>
+                    </form>
+                </div>
+
+                <!-- Tabla de boletos -->
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Función</th>
+                                <th>Cliente</th>
+                                <th>Asiento</th>
+                                <th>Precio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../config/supabase.js"></script>
+    <script src="../scripts/validaciones.js"></script>
+    <script src="../scripts/app.js"></script>
+    <script>
+        // Inicializar la lista de boletos al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            listarBoletos();
+        });
+    </script>
+</body>
+</html>

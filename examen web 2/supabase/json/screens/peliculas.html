@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Películas - CineSystem</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+        <nav class="navegacion">
+            <div class="logo">CineSystem</div>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="peliculas.html" class="activo">Peliculas</a></li>
+                <li><a href="salas.html">Salas</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="boletos.html">Boletos</a></li>
+                <li><a href="asignaciones.html">Asignaciones</a></li>
+                <li><a href="funciones.html">Funciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion activo">
+            <div class="contenedor-crud">
+                <h2>Administración de Películas</h2>
+                
+                <!-- Formulario de registro -->
+                <div class="contenedor-formulario">
+                    <h3>Registrar Película</h3>
+                    <form id="form-peliculas">
+                        <div class="form-group">
+                            <label for="titulo">Título</label>
+                            <input type="text" id="titulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="genero">Género</label>
+                            <input type="text" id="genero" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="duracion">Duración (minutos)</label>
+                            <input type="number" id="duracion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clasificacion">Clasificación</label>
+                            <input type="text" id="clasificacion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sinopsis">Sinopsis</label>
+                            <textarea id="sinopsis" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Registrar Película</button>
+                    </form>
+                </div>
+
+                <!-- Tabla de películas -->
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Género</th>
+                                <th>Duración</th>
+                                <th>Clasificación</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../config/supabase.js" type="module"></script>
+    <script src="../scripts/validaciones.js"></script>
+    <script src="../scripts/app.js"></script>
+</body>
+</html>
