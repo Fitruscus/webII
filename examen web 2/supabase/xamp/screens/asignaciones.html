@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Asignaciones - CineSystem</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+        <nav class="navegacion">
+            <div class="logo">CineSystem</div>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="peliculas.html">Peliculas</a></li>
+                <li><a href="salas.html">Salas</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="boletos.html">Boletos</a></li>
+                <li><a href="asignaciones.html" class="activo">Asignaciones</a></li>
+                <li><a href="funciones.html">Funciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion activo">
+            <div class="contenedor-crud">
+                <h2>Administración de Asignaciones</h2>
+                
+                <!-- Formulario de registro -->
+                <div class="contenedor-formulario">
+                    <h3>Registrar Asignación</h3>
+                    <form id="form-asignaciones">
+                        <div class="form-group">
+                            <label for="nombre_sala">Nombre de Sala</label>
+                            <input type="text" id="nombre_sala" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre_pelicula">Nombre de Película</label>
+                            <input type="text" id="nombre_pelicula" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input type="date" id="fecha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="horario_entrada_pelicula">Hora</label>
+                            <input type="time" id="horario_entrada_pelicula" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="boletos_disponibles">Boletos Disponibles</label>
+                            <input type="number" id="boletos_disponibles" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Registrar Asignación</button>
+                    </form>
+                </div>
+
+                <!-- Tabla de asignaciones -->
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre de Sala</th>
+                                <th>Nombre de Película</th>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Boletos Disponibles</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../config/supabase.js"></script>
+    <script src="../scripts/validaciones.js"></script>
+    <script src="../scripts/app.js"></script>
+    <script>
+        // Inicializar la lista de asignaciones al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            listarAsignaciones();
+        });
+    </script>
+</body>
+</html>
