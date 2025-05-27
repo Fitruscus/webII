@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Salas - CineSystem</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+        <nav class="navegacion">
+            <div class="logo">CineSystem</div>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="peliculas.html">Peliculas</a></li>
+                <li><a href="salas.html" class="activo">Salas</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="boletos.html">Boletos</a></li>
+                <li><a href="asignaciones.html">Asignaciones</a></li>
+                <li><a href="funciones.html">Funciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion activo">
+            <div class="contenedor-crud">
+                <h2>Administración de Salas</h2>
+                
+                <!-- Formulario de registro -->
+                <div class="contenedor-formulario">
+                    <h3>Registrar Sala</h3>
+                    <form id="form-salas">
+                        <div class="form-group">
+                            <label for="nombre-sala">Nombre</label>
+                            <input type="text" id="nombre-sala" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="capacidad-sala">Capacidad</label>
+                            <input type="number" id="capacidad-sala" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo-sala">Tipo</label>
+                            <select id="tipo-sala" required>
+                                <option value="">Seleccione un tipo</option>
+                                <option value="2D">2D</option>
+                                <option value="3D">3D</option>
+                                <option value="IMAX">IMAX</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion-sala">Descripción</label>
+                            <textarea id="descripcion-sala"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Registrar Sala</button>
+                    </form>
+                </div>
+
+                <!-- Tabla de salas -->
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Capacidad</th>
+                                <th>Tipo</th>
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../config/supabase.js"></script>
+    <script src="../scripts/validaciones.js"></script>
+    <script src="../scripts/app.js"></script>
+    <script>
+        // Inicializar la lista de salas al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            listarSalas();
+        });
+    </script>
+</body>
+</html>
