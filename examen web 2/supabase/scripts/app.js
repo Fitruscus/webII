@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Inicializar funciones CRUD al cargar la página
 window.addEventListener('load', async function() {
     try {
+        // Esperar a que el servicio API esté disponible
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
         const rutaActual = window.location.pathname;
         console.log('Inicializando página:', rutaActual);
         
@@ -89,105 +92,79 @@ window.eliminarFuncion = eliminarFuncion;
 // Funciones CRUD para Clientes
 async function listarClientes() {
     try {
-        const clientes = await supabaseRequest('clientes', 'GET');
-        const tbody = document.querySelector('tbody');
+        const clientes = await apiService.getClientes();
+        const tabla = document.querySelector('.tabla-clientes tbody');
         
-        if (!tbody) {
-            console.error('No se encontró el elemento tbody');
+        if (!tabla) {
+            console.error('No se encontró la tabla de clientes');
             return;
         }
 
-        tbody.innerHTML = '';
+        tabla.innerHTML = '';
         
         if (Array.isArray(clientes)) {
             clientes.forEach(cliente => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${cliente.nombre || ''}</td>
-                    <td>${cliente.email || ''}</td>
-                    <td>${cliente.telefono || ''}</td>
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>${cliente.id}</td>
+                    <td>${cliente.nombre}</td>
+                    <td>${cliente.email}</td>
+                    <td>${cliente.telefono}</td>
                     <td>
-                        <button onclick="editarCliente(${cliente.id})" class="btn-edit">Editar</button>
-                        <button onclick="eliminarCliente(${cliente.id})" class="btn-delete">Eliminar</button>
+                        <button onclick="editarCliente('${cliente.id}')">Editar</button>
+                        <button onclick="eliminarCliente('${cliente.id}')">Eliminar</button>
                     </td>
                 `;
-                tbody.appendChild(tr);
+                tabla.appendChild(fila);
             });
-        } else {
-            console.error('La respuesta no es un array:', clientes);
         }
     } catch (error) {
-        console.error('Error al listar clientes:', error);
-        mostrarError('Error al cargar los clientes');
+        mostrarError(error);
     }
 }
 
-// Evento submit para el formulario de clientes
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('form-clientes');
-    if (form) {
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Obtener los datos del formulario
-            const formData = new FormData(form);
-            const datos = {
-                nombre: formData.get('nombre'),
-                email: formData.get('email'),
-                telefono: formData.get('telefono') || null
-            };
-
-            console.log('Datos del formulario:', datos);
-            
-            try {
-                await crearCliente(datos);
-                mostrarMensaje('Cliente creado exitosamente', 'success');
-                form.reset();
-                listarClientes();
-            } catch (error) {
-                mostrarError(error);
-            }
-        });
-    }
-});
-
 async function crearCliente(datos) {
     try {
-        // Validar que los datos existan
-        if (!datos.nombre || !datos.email) {
-            throw new Error('Nombre y email son requeridos');
-        }
-
-        // Formatear los datos según lo que espera Supabase
-        const datosFormato = {
-            nombre: datos.nombre,
-            email: datos.email,
-            telefono: datos.telefono || null
-        };
-
-        console.log('Datos a enviar a Supabase:', datosFormato);
-
-        // Enviar los datos directamente en el body
-        const resultado = await supabaseRequest('clientes', 'POST', {
-            body: JSON.stringify(datosFormato)
-        });
-        
-        console.log('Respuesta de Supabase:', resultado);
-        mostrarMensaje('Cliente creado exitosamente', 'success');
-        return resultado;
+        await apiService.addCliente(datos);
+        mostrarMensaje('Cliente agregado exitosamente');
+        listarClientes();
     } catch (error) {
-        console.error('Error detallado:', error);
-        mostrarError(`Error al crear el cliente: ${error.message}`);
-        throw error;
+        mostrarError(error);
     }
 }
 
 async function editarCliente(id, datos) {
-    return supabaseRequest(`clientes?id=eq.${id}`, 'PATCH', { body: datos });
+    try {
+        // Validar que el ID sea un número válido
+        const clienteId = parseInt(id);
+        if (isNaN(clienteId)) {
+            throw new Error('ID de cliente inválido');
+        }
+        
+        await apiService.updateCliente(clienteId, datos);
+        mostrarMensaje('Cliente actualizado exitosamente');
+        listarClientes();
+    } catch (error) {
+        mostrarError(error);
+    }
 }
 
 async function eliminarCliente(id) {
-    return supabaseRequest(`clientes?id=eq.${id}`, 'DELETE');
+    try {
+        // Validar que el ID sea un número válido
+        const clienteId = parseInt(id);
+        if (isNaN(clienteId)) {
+            throw new Error('ID de cliente inválido');
+        }
+        
+        if (confirm('¿Estás seguro de que quieres eliminar este cliente?')) {
+            await apiService.deleteCliente(clienteId);
+            mostrarMensaje('Cliente eliminado exitosamente');
+            listarClientes();
+        }
+    } catch (error) {
+        mostrarError(error);
+    }
 }
 
 // Funciones CRUD para Películas
