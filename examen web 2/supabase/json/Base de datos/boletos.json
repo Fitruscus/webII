@@ -1,0 +1,12 @@
+[
+    {
+        "id": "boleto001",
+        "sala": "Sala 1",
+        "pelicula": "El Padrino",
+        "fecha": "2025-05-26",
+        "hora": "18:00",
+        "cliente": "12345678",
+        "cantidad": 2,
+        "fecha_creacion": "2025-05-26T21:00:00.000Z"
+    }
+]
