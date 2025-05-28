@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doguito Petshop | Vistas</title>
+    <link rel="icon" href="../assets/img/doguitoadm.svg" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/base/base.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/header.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/table.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/button.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/modal.css" />
+    <link rel="stylesheet" href="../assets/css/buscadores/buscador.css" />
+    <link rel="stylesheet" href="../assets/css/vistas.css" />
+  </head>
+  <body>
+    <header class="header container">
+      <img src="../assets/img/doguitoadm.svg" alt="Logotipo Doguito" class="header__logo" />
+      <nav>
+        <ul class="header__list-nav">
+          <li class="header__link"><a href="vistas.html">Vistas</a></li>
+          <li class="header__link"><a href="lista_producto.html">Productos</a></li>
+          <li class="header__link"><a href="lista_cliente.html">Clientes</a></li>
+          <li class="header__link"><a href="lista_pet.html">Mascotas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="vistas-container">
+      <div class="search-container">
+        <h1 class="vistas-container__title">Clientes y sus Mascotas</h1>
+        <div class="search-box">
+            <input type="text" class="vistas-container__buscador" placeholder="Buscar cliente..." data-buscador>
+            <select class="filter-combobox" data-comboBox>
+                <option value="nombre">BUSCAR POR NOMBRE</option>
+                <option value="email">BUSCAR POR EMAIL</option>
+                <option value="asc">ORDENAR POR MASCOTAS ASC</option>
+                <option value="desc">ORDENAR POR MASCOTAS DESC</option>
+            </select>
+        </div>
+      </div>
+
+      <table class="table-vistas">
+        <thead>
+          <tr>
+            <th class="table-vistas__column--m">Nombre</th>
+            <th class="table-vistas__column--m">Email</th>
+            <th class="table-vistas__column--s">Mascotas</th>
+            <th class="table-vistas__column--m">Acciones</th>
+          </tr>
+        </thead>
+        <tbody data-table>
+
+        </tbody>
+      </table>
+    </main>
+
+    <script type="module" src="../controllers/vistas_controller.js"></script>
+  </body>
+</html>
