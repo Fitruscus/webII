@@ -1,0 +1,56 @@
+{
+  "clientes": [
+    {
+      "id": "1",
+      "nombre": "Juan",
+      "email": "juan.perez@example.com",
+      "telefono": "78945612"
+    }
+  ],
+  "peliculas": [
+    {
+      "id": "1",
+      "titulo": "",
+      "genero": "",
+      "duracion": 0,
+      "clasificacion": "",
+      "sinopsis": ""
+    }
+  ],
+  "salas": [
+    {
+      "id": "1",
+      "nombre": "",
+      "capacidad": 0,
+      "tipo": "",
+      "descripcion": ""
+    }
+  ],
+  "funciones": [
+    {
+      "id": "1",
+      "pelicula_id": 1,
+      "sala_id": 1,
+      "horario": ""
+    }
+  ],
+  "boletos": [
+    {
+      "id": "1",
+      "funcion_id": 1,
+      "cliente_id": 1,
+      "asiento": "",
+      "precio": 100
+    }
+  ],
+  "asignacion": [
+    {
+      "id": "1",
+      "nombre_sala": "",
+      "nombre_pelicula": "",
+      "fecha": "",
+      "horario_entrada_pelicula": "",
+      "boletos_disponibles": 0
+    }
+  ]
+}

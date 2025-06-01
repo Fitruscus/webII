@@ -1,0 +1,205 @@
+.pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: aliceblue;
+    background-color: black;
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    padding: 5rem 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pagina__titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.pagina__desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    margin: 0 auto 2.5rem;
+}
+
+.pagina__boton {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    width: 50%;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #812121;
+    border-radius: 50px;
+    background-color: transparent;
+    display: inline-block;
+}
+
+.pagina__boton:hover {
+    background-color: #812121;
+    color: white;
+}
+
+@media screen and (min-width:750px) {
+.pagina {
+    background-size: cover;
+    padding-top: 8rem;
+    background-position: center;
+}
+}
+.producto {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.producto__titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.producto__card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0;
+}
+
+.card {
+    list-style: none;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card__imagen {
+    width: 80%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card__contenido {
+    padding: 1.5rem;
+}
+
+.card__titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.card__precio {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: #e44d26;
+    margin-bottom: 1rem;
+}
+
+.card__desc {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+.card__boton {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #e44d26;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.card__boton:hover {
+    background-color: #c63e1f;
+}
+
+.contacto {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.contacto__titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.contacto__contenido {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contacto__descripcion {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.contacto__formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contacto__formulario input, .contacto__formulario textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+.contacto__formulario textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.contacto__formulario button {
+    padding: 0.75rem 2rem;
+    background-color: #e44d26;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contacto__formulario button:hover {
+    background-color: #c63e1f;
+}
+
+@media (min-width: 768px) {
+    .contacto__contenido {
+    padding: 0 3rem;
+    }
+}

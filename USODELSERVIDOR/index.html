@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Local Server</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Open+Sans&family=Parisienne&display=swap" rel="stylesheet"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main>
+      <div class="formContainer">
+        <div class="title"><img src="./assets/rocket.svg" /></div>
+        <form action="" id="taskForm" data-form>
+          <input
+            type="text"
+
+            name="task"
+            placeholder="Titulo"
+            class="inputForm"
+            autocomplete="off"
+            
+            data-input-task
+            required
+          />
+          <input
+            type="text"
+
+            name="description"
+            placeholder="Descripción"
+            class="inputForm"
+            autocomplete="off"
+
+            data-input-descripcion
+            required
+          />
+          <input
+            type="date"
+
+            name="date"
+            placeholder="Fecha"
+            class="inputForm"
+
+            data-input-fecha
+            required
+          />
+          <input
+            type="text"
+
+            name="priority"
+            placeholder="Nombre"
+            class="inputForm"
+            autocomplete="off"
+
+            data-input-prioridad
+            required
+          />
+          <input
+            type="number"
+            name="entero"
+            placeholder="Entero"
+            class="inputForm"
+            autocomplete="off"
+            data-input-entero
+            required
+            min="0"               
+            step="1"              
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57" 
+          />
+          <button type="submit" class="btnCreate" onclick="postData()">
+            Agregar <i class="fas fa-plus-circle"></i>
+          </button>
+        </form>
+      </div>
+
+      <script src="js/get.js"></script>
+      <script src="js/post.js"></script>
+      <script src="js/put.js"></script>
+      <script src="js/delete.js"></script>
+
+      <div class="contentContainer">
+        <div class="tableContainer">
+          <h2>Lista de Tareas</h2>
+          <table id="taskTable">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Valor Entero</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

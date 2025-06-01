@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "titulo": "Nuevo Post Creado",
+      "descripcion": "CONTENIDO",
+      "fecha": "2025-03-27",
+      "nombre": "Fito",
+      "valorEntero": 21
+    },
+    {
+      "id": "2",
+      "titulo": "Nuevo Post Creado",
+      "descripcion": "CONTENIDO",
+      "fecha": "2025-03-27",
+      "nombre": "Perez",
+      "valorEntero": 21
+    },
+    {
+      "id": "4",
+      "titulo": "holi",
+      "descripcion": "bb",
+      "fecha": "2025-04-10",
+      "nombre": "Gonti",
+      "valorEntero": 12
+    },
+    {
+      "id": "5",
+      "titulo": "ostia",
+      "descripcion": "chaval",
+      "fecha": "2025-04-10",
+      "nombre": "Fibio",
+      "valorEntero": 12
+    },
+    {
+      "id": "6",
+      "titulo": "hola",
+      "descripcion": "hijitas",
+      "fecha": "2025-04-10",
+      "nombre": "Rafa",
+      "valorEntero": 12
+    },
+    {
+      "id": "7",
+      "titulo": "azdwx",
+      "descripcion": "azdwx",
+      "fecha": "2025-04-10",
+      "nombre": "azdwx",
+      "valorEntero": 12
+    }
+  ]
+}

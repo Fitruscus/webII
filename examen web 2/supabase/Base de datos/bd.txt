@@ -1,0 +1,65 @@
+-- Crear la base de datos
+CREATE DATABASE cine_db;
+USE cine_db;
+
+-- Crear tabla de clientes
+CREATE TABLE clientes (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    nombre TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    telefono TEXT
+);
+
+-- Crear tabla de películas
+CREATE TABLE peliculas (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    titulo TEXT NOT NULL,
+    genero TEXT NOT NULL,
+    duracion INT NOT NULL, -- duración en minutos
+    clasificacion TEXT NOT NULL,
+    sinopsis TEXT
+);
+
+-- Crear tabla de salas
+CREATE TABLE salas (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    nombre TEXT NOT NULL,
+    capacidad INT NOT NULL
+);
+
+-- Crear tabla de funciones
+CREATE TABLE funciones (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    pelicula_id BIGINT REFERENCES peliculas(id),
+    sala_id BIGINT REFERENCES salas(id),
+    horario TIMESTAMP NOT NULL
+);
+
+-- Crear tabla de boletos
+CREATE TABLE boletos (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    funcion_id BIGINT REFERENCES funciones(id),
+    cliente_id BIGINT REFERENCES clientes(id),
+    asiento TEXT NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL
+);
+
+-- Crear tabla de asignaciones
+CREATE TABLE asignacion (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    nombre_sala TEXT NOT NULL,
+    nombre_pelicula TEXT NOT NULL,
+    fecha DATE NOT NULL,
+    horario_entrada_pelicula TIME NOT NULL,
+    boletos_disponibles INT NOT NULL
+);
+
+-- Permisos para la tabla asignacion
+CREATE POLICY "Allow public read access" 
+ON asignacion FOR SELECT 
+TO authenticated, anon
+USING (true);
+
+CREATE POLICY "Allow all" ON asignacion
+FOR ALL
+USING (true);

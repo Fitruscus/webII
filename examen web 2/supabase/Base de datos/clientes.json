@@ -1,0 +1,11 @@
+[
+    {
+        "id": "cli001",
+        "ci": "12345678",
+        "nombre": "Juan",
+        "apellido": "Perez",
+        "telefono": "78945612",
+        "email": "juan.perez@example.com",
+        "fecha_registro": "2025-05-26T21:00:00.000Z"
+    }
+]
